@@ -1,7 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11134" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11134"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17156"/>
+        <plugIn identifier="com.apple.pdfkit.ibplugin" version="17156"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -673,7 +676,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="PDFHelp" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -703,15 +706,41 @@
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="PDFHelp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="874"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <pdfView autoresizesSubviews="NO" wantsLayer="YES" appearanceType="aqua" translatesAutoresizingMaskIntoConstraints="NO" id="0gM-FM-Jgj">
+                                <rect key="frame" x="0.0" y="32" width="480" height="842"/>
+                            </pdfView>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RoF-2K-2Dy">
+                                <rect key="frame" x="174" y="0.0" width="134" height="32"/>
+                                <buttonCell key="cell" type="push" title="Add Annotation" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fad-9U-4GC">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="addAnnotation:" target="XfG-lQ-9wD" id="zUO-6L-mfZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="0gM-FM-Jgj" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="PzW-I4-8Nb"/>
+                            <constraint firstAttribute="trailing" secondItem="0gM-FM-Jgj" secondAttribute="trailing" id="S59-AI-bun"/>
+                            <constraint firstAttribute="bottom" secondItem="RoF-2K-2Dy" secondAttribute="bottom" constant="7" id="iHt-FZ-ayX"/>
+                            <constraint firstItem="RoF-2K-2Dy" firstAttribute="top" secondItem="0gM-FM-Jgj" secondAttribute="bottom" constant="4" id="ono-P6-bwg"/>
+                            <constraint firstItem="RoF-2K-2Dy" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="180" id="v0l-eb-X6d"/>
+                            <constraint firstItem="0gM-FM-Jgj" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="xJV-iT-2X7"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="pdfView" destination="0gM-FM-Jgj" id="3qq-AL-FgO"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="75" y="957"/>
         </scene>
     </scenes>
 </document>
