@@ -711,7 +711,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="480" height="874"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <pdfView autoresizesSubviews="NO" wantsLayer="YES" appearanceType="aqua" translatesAutoresizingMaskIntoConstraints="NO" id="0gM-FM-Jgj">
+                            <pdfView autoresizesSubviews="NO" wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0gM-FM-Jgj" customClass="PDFViewer" customModule="PDFHelp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="32" width="480" height="842"/>
                             </pdfView>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RoF-2K-2Dy">
